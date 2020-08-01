@@ -46,6 +46,10 @@ int listDelete(DNode *L, int index) {
     while (tmpL != NULL) {
         if (count == index) {
             DNode *tmpNode = tmpL;
+            /*
+                1. 将当前节点的后继节点的prior指向当前节点的前驱节点
+                2. 将当前节点的前驱节点的next指向当前节点的后继节点
+            */
             tmpL->next->prior = tmpL->prior;
             tmpL->prior->next = tmpL->next;
             delete tmpNode;
