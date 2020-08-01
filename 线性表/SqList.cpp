@@ -53,15 +53,15 @@ int listInsert(SqList &L, int index, int element) {
 }
 
 // 删除元素，根据下标（index）删除元素
-// 1, 2, 3, 4, 5, 6 删除下标为3的元素：1, 2, 3, 5, 6 element = 4
-int listDelete(SqList &L, int index, int &element) {
+// 1, 2, 3, 4, 5, 6 删除下标为3的元素：1, 2, 3, 5, 6
+int listDelete(SqList &L, int index) {
     if (empty(L)) return -1; // 顺序表中没有元素
     if (index < 0 || index > MaxSize) return -1; // 下标位置越界
-    element = L.data[index];
+    int element = L.data[index];
     for (int i = index; i < length(L) - 1; i++)
         L.data[i] = L.data[i + 1];
     L.length -= 1;
-    return 1;
+    return element;
 }
 
 // 输出顺序表
@@ -91,8 +91,7 @@ int main() {
     cout << "locateElement 3: " << locateElement(L, 3) << endl;;
     cout << "getElement 3: " << getElement(L, 3) << endl;;
     // 测试删除元素
-    int element = -1;
-    listDelete(L, 4, element);
+    int element = listDelete(L, 4);
     cout << "listDelete: " << element << endl;
     printList(L);
     // 测试销毁操作
