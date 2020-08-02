@@ -7,3 +7,4 @@
     * 顺序栈 (栈/SqStack.cpp)
     * 顺序队列 (队列/SqQueue.cpp)
     * 循环队列 (队列/CircularQueue.cpp)
+    * 链式队列 (队列/LinkQueue.cpp)
